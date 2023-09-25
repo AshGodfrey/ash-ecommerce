@@ -4,11 +4,8 @@ import Link from "next/link";
 import { getRecentProducts } from "lib/shopify";
 import RecentProducts from "/components/RecentProducts";
 import HeroBanner from "/components/HeroBanner";
+import client from 'lib/contentfulClient';
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-});
 
 export default async function Home() {
   const page = await client.getEntry(process.env.HOMEPAGE_CONTENT);

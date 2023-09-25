@@ -1,14 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { createClient } from "contentful";
-
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-});
+import client from 'lib/contentfulClient'
 
 export default async function Header() {
-  const logo = await client.getEntry("vygrfEogli0DJbCJPHZzK");
+  const logo = await client.getEntry(process.env.HEADER_CONTENT);
   return (
     <header className="bg-slate-200 text-slate-800 p-10">
       <div className="container mx-auto">
