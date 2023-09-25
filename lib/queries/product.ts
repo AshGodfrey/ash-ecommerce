@@ -22,8 +22,8 @@ export const productsQuery = `
 
 export const recentProductsQuery = `
   ${productDetailsFragment}
-  query ProductsQuery {
-    products(first: 3, sortKey: CREATED_AT, reverse: true) {
+  query ProductsQuery($first: Int!) {
+    products(first: $first, sortKey: CREATED_AT, reverse: true) {
       nodes {
         ...ProductDetails
         handle

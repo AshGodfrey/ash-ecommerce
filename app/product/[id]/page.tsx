@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { getProduct } from "lib/shopify";
 import ProductImage from "../../../components/ProductPage/ProductImage";
 import ProductDetails from "../../../components/ProductPage/ProductDetails";

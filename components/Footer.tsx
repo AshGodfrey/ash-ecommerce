@@ -1,7 +1,5 @@
 import Link from "next/link";
-
 const { COMPANY_NAME, SITE_NAME } = process.env;
-import { Suspense } from "react";
 const currentYear = new Date().getFullYear();
 const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : "");
 const copyrightName = COMPANY_NAME || SITE_NAME || "";
