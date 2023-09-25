@@ -44,8 +44,8 @@ export async function getProduct(id: string): Promise<ProductResponse> {
   });
 }
 
-export async function getProducts(): Promise<ProductsResponse> {
-  return fetchGraphQL(productsQuery);
+export async function getProducts(query?: string): Promise<ProductsResponse> {
+  return fetchGraphQL(productsQuery, { first: query ? 10 : 100, query });
 }
 
 export async function getRecentProducts(

@@ -14,7 +14,7 @@ interface SingleProductPageProps {
 
 export default async function ProductPage({ params }: SingleProductPageProps) {
   const json = await getProduct(params.id);
-  const { product } = json.data;
+  const product = json?.data?.product;
   if (!product) {
     return notFound();
   }

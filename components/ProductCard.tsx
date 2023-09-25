@@ -15,7 +15,7 @@ export default function ProductCard({ item }: ProductCardProps) {
         <Image
           src={item.featuredImage?.url || '/image-coming-soon.jpg'}
           alt={item.featuredImage?.altText || 'Default alt text'}
-          fill="true"
+          fill={true}
           className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
         />
         <Link
@@ -33,7 +33,6 @@ export default function ProductCard({ item }: ProductCardProps) {
             item.priceRangeV2.minVariantPrice.currencyCode,
           )}
         </h4>
-        <p className="text-sm text-gray-600 mt-2 mb-3">{item.description}</p>
       </div>
     </li>
   );

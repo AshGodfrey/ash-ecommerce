@@ -8,10 +8,11 @@ query SingleProductQuery($id: ID!) {
   }
 }
 `;
+
 export const productsQuery = `
   ${productDetailsFragment}
-  query ProductsQuery {
-    products(first: 100) {
+  query ProductsQuery($first: Int!, $query: String) {
+    products(first: $first, query: $query) {
       nodes {
         ...ProductDetails
         handle
