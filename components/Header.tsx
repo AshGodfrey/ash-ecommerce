@@ -41,9 +41,7 @@ export default async function Header() {
               height={250}
             />
           </Link>
-          <div className="w-[500px]">
             <Search />
-          </div>
           <ul className="hidden md:flex space-x-4">
             <li>
               <a href="#" className="hover:text-blue-300">
