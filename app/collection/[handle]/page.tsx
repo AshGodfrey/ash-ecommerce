@@ -12,7 +12,7 @@ interface CollectionPageProps {
 
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const json = await getCollection(params.handle);
-  if (!json || !json.data) return notFound();
+  if (!json || !json.data || !json.data.collectionByHandle) return notFound();
 
   return (
     <main className="container mx-auto py-5 px-4">

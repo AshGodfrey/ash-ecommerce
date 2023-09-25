@@ -14,9 +14,10 @@ interface SingleProductPageProps {
 
 export default async function ProductPage({ params }: SingleProductPageProps) {
   const json = await getProduct(params.id);
-  if (!json || !json.data) return notFound();
   const { product } = json.data;
-
+  if (!product) {
+    return notFound();
+  }
   return (
     <div className="container mx-auto my-10 md:pb-12">
       <div className="flex flex-col md:flex-row md:items-start gap-6">
