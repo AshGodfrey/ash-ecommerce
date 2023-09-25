@@ -38,7 +38,7 @@ export default async function HeroBanner() {
       <Image
         src={'https:' + bannerImageUrl}
         alt={bannerImageAlt}
-        layout="fill"
+        fill="true"
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 flex items-center justify-center text-white bg-opacity-50 bg-slate-800">

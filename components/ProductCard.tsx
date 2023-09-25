@@ -15,7 +15,7 @@ export default function ProductCard({ item }: ProductCardProps) {
         <Image
           src={item.featuredImage?.url || '/image-coming-soon.jpg'}
           alt={item.featuredImage?.altText || 'Default alt text'}
-          layout="fill"
+          fill="true"
           className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
         />
         <Link
