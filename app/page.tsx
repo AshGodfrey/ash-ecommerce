@@ -11,7 +11,7 @@ const client = createClient({
 });
 
 export default async function Home() {
-  const page = await client.getEntry("2cayfg7wVF5WezADCHgSgL");
+  const page = await client.getEntry(process.env.HOMEPAGE_CONTENT);
   const json = await getRecentProducts(3);
   return (
     <div>

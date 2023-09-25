@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import formatPrice from 'lib/utils';
+import { formatPrice } from 'lib/utils';
 
 type ProductCardProps = {
   item: any; // placeholder type, should be product

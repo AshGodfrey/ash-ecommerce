@@ -1,7 +1,7 @@
 import { fetchAllCollections } from "../lib/shopify";
 import Link from "next/link";
 export default async function Navbar() {
-  var collections = await fetchAllCollections();
+  const collections = await fetchAllCollections();
   return (
     <nav className="bg-slate-200 text-white border-t border-gray-300">
       <nav className="bg-slate-400 p-4">

@@ -15,7 +15,6 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
     "contentful": "^10.5.2",
-    "currency-symbol-map": "^5.1.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "next": "13.5.2",

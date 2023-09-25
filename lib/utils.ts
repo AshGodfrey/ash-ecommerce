@@ -1,8 +1,8 @@
-import getSymbolFromCurrency from 'currency-symbol-map';
-
-export default function formatPrice(amount, currencyCode) {
-    const price = parseFloat(amount);
-    
-  const symbol = getSymbolFromCurrency(currencyCode);
-  return `${symbol}${price.toFixed(2)}`;
+export function formatPrice(amount, currencyCode = 'USD') {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currencyCode,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
   }
