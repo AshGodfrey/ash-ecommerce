@@ -1,20 +1,26 @@
-import { GraphQLResponse } from "/types";
+import {
+  CollectionResponse,
+  CollectionsResponse,
+  ProductResponse,
+  ProductsResponse,
+  GraphQLResponse,
+} from './types';
 import {
   productQuery,
   productsQuery,
   recentProductsQuery,
-} from "./queries/product";
-import { getCollectionsQuery, getCollectionQuery } from "./queries/collections";
+} from './queries/product';
+import { getCollectionsQuery, getCollectionQuery } from './queries/collections';
 
-async function fetchGraphQL(
+async function fetchGraphQL<T>(
   query: string,
   variables?: Object,
-): Promise<GraphQLResponse> {
+): Promise<GraphQLResponse<T>> {
   const res = await fetch(process.env.GRAPHQL_API_URL!, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Access-Token": process.env.ADMIN_API_ACCESS_TOKEN!,
+      'Content-Type': 'application/json',
+      'X-Shopify-Access-Token': process.env.ADMIN_API_ACCESS_TOKEN!,
     },
     body: JSON.stringify({
       query,
@@ -32,24 +38,28 @@ async function fetchGraphQL(
   return res.json();
 }
 
-export async function getProduct(id: string): Promise<GraphQLResponse> {
+export async function getProduct(id: string): Promise<ProductResponse> {
   return fetchGraphQL(productQuery, {
     id: `gid://shopify/Product/${id}`,
   });
 }
 
-export async function getProducts(): Promise<GraphQLResponse> {
+export async function getProducts(): Promise<ProductsResponse> {
   return fetchGraphQL(productsQuery);
 }
 
-export async function getRecentProducts(first: number): Promise<GraphQLResponse> {
-    return fetchGraphQL(recentProductsQuery, { first });
-  }
+export async function getRecentProducts(
+  first: number,
+): Promise<ProductsResponse> {
+  return fetchGraphQL(recentProductsQuery, { first });
+}
 
-export async function fetchAllCollections(): Promise<GraphQLResponse> {
+export async function fetchAllCollections(): Promise<CollectionsResponse> {
   return fetchGraphQL(getCollectionsQuery);
 }
 
-export async function getCollection(handle: string): Promise<GraphQLResponse> {
+export async function getCollection(
+  handle: string,
+): Promise<CollectionResponse> {
   return fetchGraphQL(getCollectionQuery, { handle });
 }

@@ -1,13 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getProduct } from "lib/shopify";
-import ProductImage from "../../../components/ProductPage/ProductImage";
-import ProductDetails from "../../../components/ProductPage/ProductDetails";
-import AddToCart from "../../../components/ProductPage/AddToCart";
+import Image from 'next/image';
+import Link from 'next/link';
+import { getProduct } from 'lib/shopify';
+import ProductImage from 'components/ProductPage/ProductImage';
+import ProductDetails from 'components/ProductPage/ProductDetails';
+import AddToCart from 'components/ProductPage/AddToCart';
+import { notFound } from 'next/navigation';
+
+interface SingleProductPageProps {
+  params: {
+    id: string;
+  };
+}
 
 export default async function ProductPage({ params }: SingleProductPageProps) {
   const json = await getProduct(params.id);
-  if (!json) return notFound();
+  if (!json || !json.data) return notFound();
   const { product } = json.data;
 
   return (

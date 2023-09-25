@@ -1,5 +1,3 @@
-export default function Loading(){
-    return(
-        <span>Loading...</span>
-    )
+export default function Loading() {
+  return <span>Loading...</span>;
 }

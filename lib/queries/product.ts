@@ -1,4 +1,4 @@
-import { productDetailsFragment } from "../fragments/productDetailsFragment";
+import { productDetailsFragment } from '../fragments/productDetailsFragment';
 
 export const productQuery = `
 ${productDetailsFragment}

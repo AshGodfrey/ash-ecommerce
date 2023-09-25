@@ -1,4 +1,4 @@
-interface FeaturedImage {
+export interface FeaturedImage {
   altText: string;
   height: number;
   id: string;
@@ -11,7 +11,7 @@ interface MinVariantPrice {
   currencyCode: string;
 }
 
-interface Product {
+export interface Product {
   description: string;
   featuredImage: FeaturedImage;
   id: string;
@@ -22,23 +22,14 @@ interface Product {
   title: string;
 }
 
-interface CollectionNode {
+export interface CollectionNode {
   title: string;
   handle: string;
 }
 
-interface GraphQLResponse {
+export interface CollectionResponse {
   data?: {
-    product?: Product;
-    products?: {
-      nodes: Product[];
-    };
-    collections?: {
-      edges: {
-        node: CollectionNode;
-      }[];
-    };
-    collectionByHandle?: {
+    collectionByHandle: {
       title: string;
       products: {
         edges: {
@@ -47,5 +38,37 @@ interface GraphQLResponse {
       };
     };
   };
-  errors?: { message: string }[];
+  errors?: Array<{ message: string }>;
+}
+
+export interface CollectionsResponse {
+  data?: {
+    collections: {
+      edges: {
+        node: CollectionNode;
+      }[];
+    };
+  };
+  errors?: Array<{ message: string }>;
+}
+
+export interface ProductResponse {
+  data?: {
+    product: Product;
+  };
+  errors?: Array<{ message: string }>;
+}
+
+export interface ProductsResponse {
+  data?: {
+    products: {
+      nodes: Product[];
+    };
+  };
+  errors?: Array<{ message: string }>;
+}
+
+export interface GraphQLResponse<T = any> {
+  data?: T;
+  errors?: Array<{ message: string }>;
 }

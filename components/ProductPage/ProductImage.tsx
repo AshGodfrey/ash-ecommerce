@@ -1,6 +1,11 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { FeaturedImage } from 'lib/types';
 
-export default function ProductImage({ image }) {
+interface ProductImageProps {
+  image: FeaturedImage;
+}
+
+export default function ProductImage({ image }: ProductImageProps) {
   return (
     <div className="md:w-1/3">
       <Image

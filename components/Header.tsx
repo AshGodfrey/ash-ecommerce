@@ -1,20 +1,43 @@
-import Link from "next/link";
-import Image from "next/image";
-import client from 'lib/contentfulClient'
+import client from 'lib/contentfulClient';
+import Link from 'next/link';
+import Image from 'next/image';
+
+interface LogoFields {
+  logo: {
+    fields: {
+      file: {
+        url: string;
+      };
+    };
+  };
+  alt: string;
+}
+
+interface LogoEntry {
+  fields: LogoFields;
+}
 
 export default async function Header() {
-  const logo = await client.getEntry(process.env.HEADER_CONTENT);
+  const logo = (await client.getEntry(
+    process.env.HEADER_CONTENT!,
+  )) as unknown as LogoEntry;
+
+  const logoUrl = logo.fields?.logo?.fields?.file?.url;
+  const logoAlt = logo.fields?.alt;
+
+  if (!logoUrl || !logoAlt) {
+    return null;
+  }
   return (
     <header className="bg-slate-200 text-slate-800 p-10">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
             <Image
-              src={"https:" + logo.fields.logo.fields.file.url}
-              alt={logo.fields.logo.fields.alt}
+              src={'https:' + logoUrl}
+              alt={logoAlt}
               width={400}
               height={250}
-              className="your-logo-styles"
             />
           </Link>
           <ul className="hidden md:flex space-x-4">

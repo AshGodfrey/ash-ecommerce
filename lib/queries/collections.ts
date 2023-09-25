@@ -1,4 +1,4 @@
-import { productDetailsFragment } from "../fragments/productDetailsFragment";
+import { productDetailsFragment } from '../fragments/productDetailsFragment';
 
 export const getCollectionsQuery = `{
     collections(first: 100) {
@@ -16,7 +16,7 @@ export const getCollectionQuery = `
   query CollectionByHandleQuery($handle: String!) {
     collectionByHandle(handle: $handle) {
       title
-      products(first: 10) {
+      products(first: 100) {
         edges {
           node {
             ...ProductDetails
