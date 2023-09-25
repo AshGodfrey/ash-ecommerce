@@ -1,6 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link';
+import client from 'lib/contentfulClient';
 
-export default function HeroBanner({ page }) {
+export default async function HeroBanner() {
+  const page = await client.getEntry(process.env.HOMEPAGE_CONTENT);
   return (
     <div className="relative h-[600px] w-full overflow-hidden">
       <img

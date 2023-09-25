@@ -1,6 +1,9 @@
 import ProductCard from "./ProductCard";
+import { getRecentProducts } from "lib/shopify";
 
-export default function RecentProducts({ products }) {
+export default async function RecentProducts() {
+    const json = await getRecentProducts(3);
+    const products = json.data.products.nodes
   return (
     <div className="py-12">
       <h2 className="text-3xl font-bold text-center mb-8">

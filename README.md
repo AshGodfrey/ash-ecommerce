@@ -22,7 +22,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Author Notes
 
-This app is not designed to be production ready, there are some elements that intentionally don't have functionality at this time.
+This app is not designed to be production ready, there are some elements that intentionally don't have functionality at this time and some elements that are incredibly minimal merely to display knowledge of a concept. 
 
 
 ## Learn More

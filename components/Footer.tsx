@@ -1,12 +1,18 @@
 import Link from "next/link";
-const { COMPANY_NAME, SITE_NAME } = process.env;
-const currentYear = new Date().getFullYear();
-const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : "");
-const copyrightName = COMPANY_NAME || SITE_NAME || "";
+
+function getCopyrightInfo() {
+  const { COMPANY_NAME, SITE_NAME } = process.env;
+  const currentYear = new Date().getFullYear();
+  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : "");
+  const copyrightName = COMPANY_NAME || SITE_NAME || "";
+  return {
+    copyrightDate,
+    copyrightName,
+  };
+}
 
 export default function Footer() {
-  const skeleton =
-    "w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700";
+  const { copyrightDate, copyrightName } = getCopyrightInfo();
   return (
     <footer className="text-sm text-neutral-500 dark:text-neutral-400">
       <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
