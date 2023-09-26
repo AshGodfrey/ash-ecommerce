@@ -14,18 +14,18 @@ function getCopyrightInfo() {
 export default function Footer() {
   const { copyrightDate, copyrightName } = getCopyrightInfo();
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
-      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
-          <p>
+    <footer className="text-sm text-neutral-500 dark:text-neutral-400 bg-slate-200 dark:bg-neutral-900">
+      <div className="border-t border-neutral-200 py-4 md:py-6">
+        <div className="container mx-auto px-4 md:flex md:items-center md:justify-between">
+          <p className="text-center md:text-left mb-2 md:mb-0">
             &copy; {copyrightDate} {copyrightName}
             {copyrightName.length && !copyrightName.endsWith('.')
               ? '.'
               : ''}{' '}
             All rights reserved.
           </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
-          <p>Designed in Colorado</p>
+          <hr className="mx-auto md:hidden h-px w-16 bg-neutral-300 dark:bg-neutral-700" />
+          <p className="text-center md:text-right">Designed in Colorado</p>
         </div>
       </div>
     </footer>
