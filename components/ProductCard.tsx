@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatPrice } from 'lib/utils';
 import { Product } from 'lib/types';
+import ImageComponent from './ImageComponent';
 
 type ProductCardProps = {
   item: Product;
@@ -12,9 +13,9 @@ export default function ProductCard({ item }: ProductCardProps) {
   return (
     <li className="relative border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out group">
       <div className="relative overflow-hidden h-[450px] w-full">
-        <Image
-          src={item.featuredImage?.url || '/image-coming-soon.jpg'}
-          alt={item.featuredImage?.altText || 'Default alt text'}
+        <ImageComponent
+          src={item.featuredImage?.url}
+          alt={item.featuredImage?.altText}
           fill={true}
           className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
         />

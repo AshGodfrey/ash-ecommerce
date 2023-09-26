@@ -4,7 +4,7 @@ import { Product } from 'lib/types';
 import { notFound } from 'next/navigation';
 
 // Aggressive revalidation window for example.
-export const revalidate =  120
+export const revalidate = 120;
 
 export default async function RecentProducts() {
   const json = await getRecentProducts(3);
