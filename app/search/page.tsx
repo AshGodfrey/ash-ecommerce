@@ -16,7 +16,7 @@ export default async function SearchPage({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const searchValue = searchParams ? (searchParams['q'] as string) : '';
-  const json = await getProducts(searchValue);
+  const json = await getProducts({query: searchValue});
   if (!json || !json.data) return notFound();
   return (
     <main className="container mx-auto py-5 px-4">

@@ -6,7 +6,7 @@ import { Product } from 'lib/types';
 import { notFound } from 'next/navigation';
 
 export default async function Products() {
-  const json = await getProducts();
+  const json = await getProducts({});
   if (!json || !json.data) return notFound();
 
   return (
