@@ -28,9 +28,13 @@ export default function ProductCard({ item }: ProductCardProps) {
           className="absolute bottom-0 left-0 w-full bg-blue-600 text-white py-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
           onClick={() => {
             (async () => {
-              if (productId) {
-                await create(productId);
-                router.refresh();
+              try {
+                if (productId) {
+                  await create(productId);
+                  router.refresh();
+                }
+              } catch (error) {
+                console.error("An error occurred:", error)
               }
             })();
           }}
