@@ -63,6 +63,9 @@ export interface ProductsResponse {
   data?: {
     products: {
       nodes: Product[];
+      pageInfo: {
+        hasNextPage: boolean;
+      };
     };
   };
   errors?: Array<{ message: string }>;

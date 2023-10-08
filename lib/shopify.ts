@@ -44,7 +44,10 @@ export async function getProduct(id: string): Promise<ProductResponse> {
   });
 }
 
-export async function getProducts(options: {first?: number, query?: string}): Promise<ProductsResponse> {
+export async function getProducts(options: {
+  first?: number;
+  query?: string;
+}): Promise<ProductsResponse> {
   const { first = 10, query } = options;
   return fetchGraphQL(productsQuery, { first: first, query });
 }

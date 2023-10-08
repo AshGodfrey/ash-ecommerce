@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { getProduct } from 'lib/shopify';
 import ProductImage from 'components/ProductPage/ProductImage';
 import ProductDetails from 'components/ProductPage/ProductDetails';
@@ -19,6 +17,7 @@ export default async function ProductPage({ params }: SingleProductPageProps) {
   if (!product) {
     return notFound();
   }
+
   return (
     <div className="container mx-auto my-10 md:pb-12">
       <div className="flex flex-col md:flex-row md:items-start gap-6">

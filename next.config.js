@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+module.exports = {
+  experimental: {
+    serverActions: true,
+  },
   images: {
     domains: ['images.ctfassets.net', 'cdn.shopify.com'],
   },
 };
-
-module.exports = nextConfig;

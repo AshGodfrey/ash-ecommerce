@@ -17,6 +17,9 @@ export const productsQuery = `
         ...ProductDetails
         handle
       }
+      pageInfo {
+        hasNextPage
+      }
     }
   }
 `;
